@@ -101,23 +101,3 @@ The main purpose of the model was learning feature importance and understanding 
 ![EDA Dashboard](outputs/eda_dashboard.png)
 
 ---
-
-## Feature Importance
-
-![Feature Importance](outputs/feature_importance.png)
-
----
-
-# 📂 Project Structure
-
-```bash
-teen-mental-health-analytics/
-│
-├── data/
-├── python/
-├── sql/
-├── dashboard/
-├── outputs/
-├── portfolio/
-├── presentation/
-└── README.md
