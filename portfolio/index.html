@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teen Mental Health Prediction Portfolio</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --bg:#0d1117;
+  --card:#161b22;
+  --text:#f0f6fc;
+  --muted:#8b949e;
+  --accent:#00b4d8;
+  --border:#30363d;
+  --pink:#ff4d8d;
+  --green:#00c896;
+  --red:#ff5c5c;
+  --yellow:#f4c430;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Poppins',sans-serif;
+  line-height:1.7;
+}
+
+/* NAVBAR */
+
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:18px 8%;
+  background:rgba(13,17,23,0.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:700;
+}
+
+.logo span{
+  color:var(--accent);
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:24px;
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:var(--muted);
+  transition:0.3s;
+  font-size:14px;
+}
+
+nav ul li a:hover{
+  color:var(--accent);
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:120px 8% 80px;
+}
+
+.hero h1{
+  font-size:68px;
+  line-height:1.1;
+  margin-bottom:24px;
+}
+
+.hero h1 span{
+  color:var(--accent);
+}
+
+.hero p{
+  max-width:700px;
+  color:var(--muted);
+  font-size:18px;
+  margin-bottom:32px;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:40px;
+}
+
+.tag{
+  padding:8px 16px;
+  border-radius:40px;
+  border:1px solid rgba(0,180,216,0.25);
+  background:rgba(0,180,216,0.08);
+  color:var(--accent);
+  font-size:13px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+}
+
+.stat-box{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:24px;
+  transition:0.3s;
+}
+
+.stat-box:hover{
+  transform:translateY(-4px);
+}
+
+.stat-box h2{
+  font-size:36px;
+  margin-bottom:8px;
+}
+
+.stat-box p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* GENERAL */
+
+section{
+  padding:90px 8%;
+}
+
+.section-title{
+  font-size:42px;
+  margin-bottom:40px;
+}
+
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:28px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card h3{
+  margin-bottom:14px;
+  font-size:22px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:15px;
+}
+
+/* SOCIAL MEDIA */
+
+.social-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:24px;
+}
+
+.social-card{
+  background:var(--card);
+  border-radius:18px;
+  padding:28px;
+  border:1px solid var(--border);
+  text-align:center;
+  transition:0.3s;
+}
+
+.social-card:hover{
+  transform:translateY(-6px);
+}
+
+.social-card i{
+  font-size:54px;
+  margin-bottom:18px;
+}
+
+.instagram{
+  color:#ff4d8d;
+}
+
+.tiktok{
+  color:#25f4ee;
+}
+
+.whatsapp{
+  color:#25d366;
+}
+
+.social-card h3{
+  margin-bottom:12px;
+}
+
+.social-card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* VISUALS */
+
+.visual-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:24px;
+}
+
+.visual-card{
+  background:var(--card);
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--border);
+}
+
+.visual-card img{
+  width:100%;
+  display:block;
+}
+
+.visual-content{
+  padding:20px;
+}
+
+.visual-content h3{
+  margin-bottom:10px;
+}
+
+.visual-content p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* RESUME */
+
+.resume-box{
+  background:var(--card);
+  border-radius:18px;
+  border:1px solid var(--border);
+  padding:36px;
+}
+
+.resume-box ul{
+  padding-left:22px;
+}
+
+.resume-box li{
+  margin-bottom:18px;
+  color:var(--muted);
+}
+
+.tools{
+  margin-top:28px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.tool{
+  background:rgba(0,180,216,0.08);
+  border:1px solid rgba(0,180,216,0.2);
+  color:var(--accent);
+  padding:8px 14px;
+  border-radius:30px;
+  font-size:13px;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:40px 8%;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+  font-size:42px;
+}
+
+nav ul{
+  display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+Teen<span>Prediction</span>
+</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#effects">Effects</a></li>
+<li><a href="#social">Platforms</a></li>
+<li><a href="#visuals">Visualizations</a></li>
+<li><a href="#resume">Resume</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>
+Teen Mental Health <br>
+<span>Prediction</span> using <br>
+Machine Learning
+</h1>
+
+<p>
+A beginner-friendly machine learning project analyzing how stress,
+sleep, anxiety, and social media usage affect teen mental health
+using Python, Pandas, Seaborn, and Random Forest.
+</p>
+
+<div class="tags">
+
+<span class="tag">Python</span>
+<span class="tag">Pandas</span>
+<span class="tag">NumPy</span>
+<span class="tag">Seaborn</span>
+<span class="tag">Scikit-learn</span>
+<span class="tag">Random Forest</span>
+
+</div>
+
+<div class="stats">
+
+<div class="stat-box">
+<h2>1,200</h2>
+<p>Teen Records</p>
+</div>
+
+<div class="stat-box">
+<h2>13</h2>
+<p>Dataset Features</p>
+</div>
+
+<div class="stat-box">
+<h2>90%</h2>
+<p>Prediction Accuracy</p>
+</div>
+
+<div class="stat-box">
+<h2>4</h2>
+<p>Visualizations</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2 class="section-title">
+Project Overview
+</h2>
+
+<div class="card-grid">
+
+<div class="card">
+<h3>Problem Statement</h3>
+
+<p>
+Teen mental health issues are increasing because of stress,
+sleep deprivation, anxiety, and excessive social media usage.
+</p>
+</div>
+
+<div class="card">
+<h3>Project Goal</h3>
+
+<p>
+Analyze behavioral patterns and build a machine learning model
+to predict depression risk among teenagers.
+</p>
+</div>
+
+<div class="card">
+<h3>Machine Learning</h3>
+
+<p>
+Built a Random Forest machine learning model using Scikit-learn
+to predict mental health risk.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- EFFECTS -->
+
+<section id="effects">
+
+<h2 class="section-title">
+Effects of Teen Depression
+</h2>
+
+<div class="card-grid">
+
+<div class="card">
+<h3>😴 Sleep Problems</h3>
+
+<p>
+Teens with depression often showed lower sleep duration
+and irregular sleeping habits.
+</p>
+</div>
+
+<div class="card">
+<h3>📉 Academic Impact</h3>
+
+<p>
+Higher stress and anxiety levels affected concentration,
+productivity, and academic performance.
+</p>
+</div>
+
+<div class="card">
+<h3>📱 Social Media Addiction</h3>
+
+<p>
+Excessive social media usage was associated with higher
+depression probability among teenagers.
+</p>
+</div>
+
+<div class="card">
+<h3>🧠 Mental Stress</h3>
+
+<p>
+Stress and anxiety were major behavioral factors
+affecting mental health.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- SOCIAL MEDIA -->
+
+<section id="social">
+
+<h2 class="section-title">
+Popular Social Media Platforms
+</h2>
+
+<div class="social-grid">
+
+<div class="social-card">
+
+<i class="fab fa-instagram instagram"></i>
+
+<h3>Instagram</h3>
+
+<p>
+Heavy Instagram usage may increase comparison anxiety,
+screen addiction, and emotional stress among teenagers.
+</p>
+
+</div>
+
+<div class="social-card">
+
+<i class="fab fa-tiktok tiktok"></i>
+
+<h3>TikTok</h3>
+
+<p>
+Excessive short-video consumption may affect sleep,
+focus, and mental well-being.
+</p>
+
+</div>
+
+<div class="social-card">
+
+<i class="fab fa-whatsapp whatsapp"></i>
+
+<h3>WhatsApp</h3>
+
+<p>
+Constant messaging and online activity may increase
+stress and reduce offline social interaction.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- VISUALIZATIONS -->
+
+<section id="visuals">
+
+<h2 class="section-title">
+Project Visualizations
+</h2>
+
+<div class="visual-grid">
+
+<div class="visual-card">
+
+<img src="assets/images/depression_distribution.png"
+alt="Depression Distribution"
+onerror="this.style.display='none'">
+
+<div class="visual-content">
+
+<h3>Depression Distribution</h3>
+
+<p>
+Distribution of depressed and non-depressed teens
+in the dataset.
+</p>
+
+</div>
+
+</div>
+
+<div class="visual-card">
+
+<img src="assets/images/sleep_vs_depression.png"
+alt="Sleep vs Depression"
+onerror="this.style.display='none'">
+
+<div class="visual-content">
+
+<h3>Sleep vs Depression</h3>
+
+<p>
+Visualization showing how sleep duration differs
+between healthy and depressed teens.
+</p>
+
+</div>
+
+</div>
+
+<div class="visual-card">
+
+<img src="assets/images/correlation_heatmap.png"
+alt="Correlation Heatmap"
+onerror="this.style.display='none'">
+
+<div class="visual-content">
+
+<h3>Correlation Heatmap</h3>
+
+<p>
+Correlation analysis between stress, anxiety,
+sleep, and social media usage.
+</p>
+
+</div>
+
+</div>
+
+<div class="visual-card">
+
+<img src="assets/images/feature_importance.png"
+alt="Feature Importance"
+onerror="this.style.display='none'">
+
+<div class="visual-content">
+
+<h3>Feature Importance</h3>
+
+<p>
+Random Forest feature importance highlighting
+major mental health risk factors.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- RESUME -->
+
+<section id="resume">
+
+<h2 class="section-title">
+Resume Project Description
+</h2>
+
+<div class="resume-box">
+
+<ul>
+
+<li>
+Performed data cleaning and exploratory data analysis
+using Python and Pandas.
+</li>
+
+<li>
+Created visualizations using Seaborn and Matplotlib
+to analyze stress, anxiety, sleep, and social media usage.
+</li>
+
+<li>
+Built a Random Forest machine learning model to predict
+teen depression risk.
+</li>
+
+<li>
+Used feature importance analysis to identify major
+behavioral factors affecting mental health.
+</li>
+
+<li>
+Developed an HTML portfolio and PowerPoint presentation
+for project showcasing.
+</li>
+
+</ul>
+
+<div class="tools">
+
+<span class="tool">Python</span>
+<span class="tool">Pandas</span>
+<span class="tool">NumPy</span>
+<span class="tool">Matplotlib</span>
+<span class="tool">Seaborn</span>
+<span class="tool">Scikit-learn</span>
+<span class="tool">Random Forest</span>
+<span class="tool">Machine Learning</span>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3 style="margin-bottom:10px;color:white;">
+Teen Mental Health Prediction Portfolio
+</h3>
+
+<p>
+Built with Python · Pandas · Seaborn · Scikit-learn · Machine Learning
+</p>
+
+</footer>
+
+</body>
+</html>
