@@ -101,3 +101,15 @@ The main purpose of the model was learning feature importance and understanding 
 ![EDA Dashboard](outputs/eda_dashboard.png)
 
 ---
+---
+
+# 👨‍💻 Author
+
+## Akshay Dudam
+
+Aspiring Data Analyst and Machine Learning Enthusiast passionate about Python, data visualization, and beginner-friendly machine learning projects.
+
+### 🔗 Connect With Me
+
+- GitHub: https://github.com/dudamakshay
+- LinkedIn: https://www.linkedin.com/
